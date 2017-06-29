@@ -91,7 +91,7 @@ To use this, simply declare a LineDecoder with a Body (that is automatically clo
 		log.Fatalln("failed while opening a file: ", err)
 	}
 
-	decoder := bulk.LineDecoder{Body: file}
+    decoder := bulk.LineDecoder{Body: file}
     progress := make(chan bulk.Status)
 
     bulker.Feed(decoder, progress)

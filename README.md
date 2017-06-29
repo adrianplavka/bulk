@@ -85,11 +85,11 @@ To use this, simply declare a LineDecoder with a Body (that is automatically clo
 
 ```go
     // Open a CSV file for read-only.
-	path := "urls.csv"
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatalln("failed while opening a file: ", err)
-	}
+    path := "urls.csv"
+    file, err := os.Open(path)
+    if err != nil {
+        log.Fatalln("failed while opening a file: ", err)
+    }
 
     decoder := bulk.LineDecoder{Body: file}
     progress := make(chan bulk.Status)

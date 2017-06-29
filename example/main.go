@@ -26,7 +26,7 @@ func main() {
 	bulker := bulk.DefaultBulker
 
 	// Open a CSV file for read-only.
-	path := "E:/Development/Go/bulk/src/github.com/adrianplavka/bulk/example/urls.csv"
+	path := "urls.csv"
 	file, err := os.Open(path)
 	if err != nil {
 		log.Fatalln("failed while opening a file: ", err)

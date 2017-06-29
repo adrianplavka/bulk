@@ -40,7 +40,7 @@ func (b Bulker) Check(url string) Status {
 }
 
 // CheckMultiple is a concurrent function, that checks multiple URLs.
-func (b Bulker) CheckMultiple(status chan<- Status, urls ...string) {
+func (b Bulker) CheckMultiple(urls []string, status chan<- Status) {
 	// Main goroutine, which waits for all URLs to be checked
 	// and sends status to the channel.
 	go func() {

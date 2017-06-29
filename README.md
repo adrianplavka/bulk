@@ -81,7 +81,7 @@ type LineDecoder struct {
 }
 ```
 
-To use this, simply declare a LineDecoder with a Body (that is automatically closed after decoding).
+To use this, simply declare a LineDecoder with a Body (that is automatically closed after decoding):
 
 ```go
     // Open a CSV file for read-only.
@@ -102,4 +102,4 @@ To use this, simply declare a LineDecoder with a Body (that is automatically clo
 
 ## License
 
-**MIT**
+[MIT](LICENSE.md)

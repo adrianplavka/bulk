@@ -6,7 +6,7 @@ This library helps to provide a simple API for testing *multiple URLs* for their
 if they are **Valid** and where they **__Redirect__**, or if they are **Invalid**.
 Requests are done by a **"HEAD" HTTP method**, and every URL checking is done **concurrently**.
 
-Maintaned by @adrianplavka.
+Maintaned by [@adrianplavka](https://github.com/adrianplavka).
 
 ## Installation
 
@@ -73,7 +73,7 @@ type Decoder interface {
 }
 ```
 
-Bulk comes with a LineDecoder, that reads a source line-by-line, URLs are separated by a newline.
+Bulk comes with a LineDecoder, that reads a Body line-by-line, URLs are separated by a newline.
 
 ```go
 type LineDecoder struct {

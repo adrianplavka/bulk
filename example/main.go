@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"../../bulk"
+	"github.com/adrianplavka/bulk"
 )
 
 /*

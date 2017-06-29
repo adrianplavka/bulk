@@ -58,6 +58,8 @@ To check multiple URLs, you pass a string slice and a status channel to CheckMul
 
 ```go
 func main() {
+    bulker := bulk.DefaultBulker
+
     urls := []string{
         "http://google.com",
         "http://github.com",
@@ -99,6 +101,8 @@ To use this, simply declare a LineDecoder with a Body (that is automatically clo
 
 ```go
 func main() {
+    bulker := bulk.DefaultBulker
+
     // Open a CSV file for read-only.
     path, _ := filepath.Abs("bulk/example/urls.csv")
     file, err := os.Open(path)

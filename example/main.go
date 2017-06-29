@@ -13,13 +13,6 @@ import (
 	Author: 	Adrian Plavka
 	Contact: 	adrian.plavka@gmail.com
 	Reference: 	https://www.github.com/adrianplavka/bulk
-
-	README!
-	This is a console application named "bulk".
-	It will run a batch of URLs and provide information, if they:
-	are Valid and where they Redirect, or Invalid.
-
-	Every URL checking is done by a goroutine (concurrently).
 */
 
 func main() {
@@ -33,9 +26,12 @@ func main() {
 		log.Fatalln("failed while opening a file: ", err)
 	}
 
+	// Create a LineDecoder with a Status channel.
+	// File is automatically closed in LineDecoder.
 	decoder := bulk.LineDecoder{Body: file}
 	progress := make(chan bulk.Status)
 
+	// Feed the URLs with a decoder.
 	bulker.Feed(decoder, progress)
 	for status := range progress {
 		fmt.Println(status)

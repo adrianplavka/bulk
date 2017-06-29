@@ -61,6 +61,10 @@ To check multiple URLs, you pass a string slice and a status channel to CheckMul
 
 ```go
 func main() {
+    urls := []string{
+		"http://google.com",
+		"http://github.com",
+		"http://stackoverflow.com"}
     progress := make(chan bulk.Status)
 
     bulker.CheckMultiple(urls, progress)

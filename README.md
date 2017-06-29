@@ -81,7 +81,7 @@ type LineDecoder struct {
 }
 ```
 
-To use this, simply declare a LineDecoder with a Body (that is automatically closed after decoding):
+To use this, simply declare a LineDecoder with a Body (that is automatically closed after decoding) and call Feed method:
 
 ```go
     // Open a CSV file for read-only.

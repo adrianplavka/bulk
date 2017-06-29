@@ -68,7 +68,7 @@ func main() {
 
     bulker.CheckMultiple(urls, progress)
     for status := range progress {
-        fmt.Println(status)
+        fmt.Println(status, status.Redirs)
     }
 
     // ...
@@ -117,7 +117,7 @@ func main() {
     // Feed the URLs with a decoder.
     bulker.Feed(decoder, progress)
     for status := range progress {
-        fmt.Println(status)
+        fmt.Println(status, status.Redirs)
     }
 
     // ...

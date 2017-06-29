@@ -6,13 +6,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"../../bulk"
+	"github.com/adrianplavka/bulk"
 )
 
 /*
 	Author: 	Adrian Plavka
 	Contact: 	adrian.plavka@gmail.com
-	Reference: 	https://www.github.com/adrianplavka
+	Reference: 	https://www.github.com/adrianplavka/bulk
 
 	README!
 	This is a console application named "bulk".

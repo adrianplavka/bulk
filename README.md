@@ -106,9 +106,11 @@ func main() {
         log.Fatalln("failed while opening a file: ", err)
     }
 
+    // Create a LineDecoder with a Status channel.
     decoder := bulk.LineDecoder{Body: file}
     progress := make(chan bulk.Status)
 
+    // Feed the URLs with a decoder.
     bulker.Feed(decoder, progress)
     for status := range progress {
         fmt.Println(status)

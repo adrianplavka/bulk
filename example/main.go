@@ -2,11 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
-	"path/filepath"
 
-	"github.com/adrianplavka/bulk"
+	"../../bulk"
 )
 
 /*
@@ -26,24 +23,14 @@ func main() {
 	// Bulker is a type, that is defined by http.Client.
 	bulker := bulk.DefaultBulker
 
-	// Open a CSV file for read-only.
-	path, _ := filepath.Abs("bulk/example/urls.csv")
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatalln("failed while opening a file: ", err)
-	}
-
-	// Create a LineDecoder, that will decode all the URLs from a file
-	// (closing it after decoding)
-	// and a status channel to look for progress.
-	decoder := bulk.LineDecoder{Body: file}
+	urls := []string{
+		"http://google.com",
+		"http://github.com",
+		"http://stackoverflow.com"}
 	progress := make(chan bulk.Status)
 
-	// Wait for every status from the URLs.
-	// This loop blocks, until every status is retrieved.
-	bulker.Feed(decoder, progress)
+	bulker.CheckMultiple(progress, urls[:]...)
 	for status := range progress {
-		fmt.Print(status)
-		fmt.Println(status.Redirs)
+		fmt.Println(status)
 	}
 }

@@ -26,6 +26,7 @@ func main() {
     bulker := bulk.DefaultBulker
 
     // ...
+}
 ```
 
 You can now use your Bulker, which has methods pre-defined.

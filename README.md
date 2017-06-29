@@ -33,10 +33,8 @@ You can now use your Bulker, which has methods pre-defined.
 To check a single URL for it's validness, simply:
 
 ```go
-    status := bulker.Check("http://www.google.com")
-    fmt.Println(status)
-
-    // ...
+status := bulker.Check("http://www.google.com")
+fmt.Println(status)
 ```
 
 Check method returns a single Status, that simply tells if the URL was Valid with Redirections or Not.
@@ -52,9 +50,7 @@ type Status struct {
 To check how many redirections it had, you can iterate over status' Redirs:
 
 ```go
-    fmt.Println(status.Redirs)
-
-    // ...
+fmt.Println(status.Redirs)
 ```
 
 To check multiple URLs, you pass a string slice and a status channel to CheckMultiple method:

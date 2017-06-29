@@ -69,6 +69,7 @@ func main() {
     }
 
     // ...
+}
 ```
 
 This loop blocks until every URL has been checked.
@@ -113,6 +114,7 @@ func main() {
     }
 
     // ...
+}
 ```
 
 ## License

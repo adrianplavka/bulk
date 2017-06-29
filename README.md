@@ -23,6 +23,8 @@ import "github.com/adrianplavka/bulk"
 
 func main() {
     bulker := bulk.DefaultBulker
+
+    // ...
 ```
 
 You can now use your Bulker, which has methods pre-defined.
@@ -32,6 +34,8 @@ To check a single URL for it's validness, simply:
 ```go
     status := bulker.Check("http://www.google.com")
     fmt.Println(status)
+
+    // ...
 ```
 
 Check method returns a single Status, that simply tells if the URL was Valid with Redirections or Not.
@@ -48,17 +52,22 @@ To check how many redirections it had, you can iterate over status' Redirs:
 
 ```go
     fmt.Println(status.Redirs)
+
+    // ...
 ```
 
 To check multiple URLs, you pass a string slice and a status channel to CheckMultiple method:
 
 ```go
+func main() {
     progress := make(chan bulk.Status)
 
     bulker.CheckMultiple(urls, progress)
     for status := range progress {
         fmt.Println(status)
     }
+
+    // ...
 ```
 
 This loop blocks until every URL has been checked.
@@ -84,8 +93,9 @@ type LineDecoder struct {
 To use this, simply declare a LineDecoder with a Body (that is automatically closed after decoding) and call Feed method:
 
 ```go
+func main() {
     // Open a CSV file for read-only.
-    path := "urls.csv"
+    path, _ := filepath.Abs("bulk/example/urls.csv")
     file, err := os.Open(path)
     if err != nil {
         log.Fatalln("failed while opening a file: ", err)
@@ -98,6 +108,8 @@ To use this, simply declare a LineDecoder with a Body (that is automatically clo
     for status := range progress {
         fmt.Println(status)
     }
+
+    // ...
 ```
 
 ## License

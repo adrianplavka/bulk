@@ -15,6 +15,7 @@ go get -u github.com/adrianplavka/bulk
 ```
 
 ## Usage
+### Check one or multiple URLs
 
 For simple usage, simply declare a DefaultBulker:
 
@@ -71,6 +72,8 @@ func main() {
 ```
 
 This loop blocks until every URL has been checked.
+
+### Check URLs from a body
 
 To check URLs from a file or a body, Feed method expects a Decoder interface wih a Status channel.
 Decoder interface contains only one method Decode, where you specify how you obtain URLs from a source.

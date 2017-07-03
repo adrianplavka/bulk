@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"../../bulk"
+	"github.com/adrianplavka/bulk"
 )
 
 /*
@@ -20,7 +20,7 @@ func main() {
 	bulker := bulk.DefaultBulker
 
 	// Open a CSV file for read-only.
-	path, _ := filepath.Abs("bulk/example/urls.csv")
+	path, _ := filepath.Abs("example/urls.csv")
 	file, err := os.Open(path)
 	if err != nil {
 		log.Fatalln("failed while opening a file: ", err)

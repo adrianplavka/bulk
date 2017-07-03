@@ -6,12 +6,6 @@ import (
 	"strings"
 )
 
-// URL valid status messages.
-const (
-	StatusValid   = "URL <{}> is Valid. "
-	StatusInvalid = "URL <{}> is Invalid. "
-)
-
 // redirection is a struct that consists of a redirected URL
 // and a StatusCode.
 type redirection struct {
@@ -26,9 +20,10 @@ func (r redirection) String() string {
 // Status is a struct that indicates if an URL was valid,
 // and how many redirects it had.
 type Status struct {
-	URL    string
-	Valid  bool
-	Redirs []redirection
+	URL        string
+	Valid      bool
+	StatusCode int
+	Redirs     []redirection
 }
 
 // Function handleRedirection represents a way to count the amount of redirections
@@ -39,6 +34,12 @@ func (s *Status) handleRedirection(req *http.Request, via []*http.Request) error
 	s.Redirs = append(s.Redirs, redir)
 	return nil
 }
+
+// URL valid status messages.
+const (
+	StatusValid   = "URL <{}> is Valid. "
+	StatusInvalid = "URL <{}> is Invalid. "
+)
 
 func (s Status) String() (msg string) {
 	if s.Valid {

@@ -22,8 +22,8 @@ var DefaultBulker = Bulker{
 }
 
 // Check checks an URL from a raw url string.
-func (b Bulker) Check(url string) Status {
-	s := Status{URL: url} // Create a URL status.
+func (b Bulker) Check(url string) (s Status) {
+	s.URL = url
 	// If any redirection happens, the redirected URLs will be added to the status.
 	b.client.CheckRedirect = s.handleRedirection
 
@@ -36,7 +36,7 @@ func (b Bulker) Check(url string) Status {
 	} else {
 		s.Valid = false
 	}
-	return s
+	return
 }
 
 // CheckMultiple is a concurrent function, that checks multiple URLs.
